@@ -31,10 +31,22 @@ Although you can use them, for a more unique website, replace these images with 
 
     <!-- Firebase stuff -->
     <script src='https://cdn.firebase.com/js/client/2.2.1/firebase.js'></script>
+
+    <!-- Chart.js stuff -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.min.js"></script>
+
+    <!-- jquery -->
+    <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+
+    <!-- chart1 -->
+    <script src="Chart1.js"></script>
+
+    <!-- chart1 -->
+    <script src="Chart2.js"></script>       
     
 </head>
 
-<body onload="createKey()">
+<body>
 
     <!-- Navigation -->
     <nav id="siteNav" class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -69,15 +81,25 @@ Although you can use them, for a more unique website, replace these images with 
         <div class="header-content">
             <div class="header-content-inner">
                 <h1>Bueller Professor</h1>
-                <p>This is your access key (give this to your students): </p>
+                <p id="accessKeyParagraph">This is your access key (give this to your students): </p>
+                <h2>Here is the data from your lecture:</h2>
+                
                 <script>
+                    //Talks with database
                     var firebaseRef = new Firebase('https://bueller.firebaseio.com/');
                     var fullClassRef = firebaseRef.push();
                     var classId = fullClassRef.key().substring(0,10);
                     var classRef = firebaseRef.child(classId);
                     classRef.onDisconnect().remove();
-                    document.write(classId);
+                    document.getElementById('accessKeyParagraph').innerHTML += '<strong>'+classId+'</strong>';
                 </script>
+
+                <!--- step 1: create a canvas on the webpage -->
+                <div>
+                    <canvas id="myChart1" width="400" height="400"></canvas>
+                    <canvas id="myChart2" width="400" height="400"></canvas>
+                </div>
+
             </div>
         </div>
     </header>
