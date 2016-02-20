@@ -66,10 +66,27 @@ Although you can use them, for a more unique website, replace these images with 
         <div class="header-content">
             <div class="header-content-inner">
                 <h1>Bueller Student</h1>
-                <p>Enter your access key here: </p>
+                <p>Enter your access key here:</p>
+                <form onSubmit="return submitKey();" id="AKForm">
+                    <input style="color:black;" type="text" name="AK">
+                    <input style="color:black;" value="Submit" type="Submit">
+                </form>
+
             </div>
         </div>
     </header>
+
+    <script type="text/Javascript">
+        function submitKey() {
+            //Deletes the form where the access key is submited
+            var elem = document.getElementById('AKForm');
+            elem.parentNode.removeChild(elem);
+
+            //TODO: place graphs and shit in the website
+
+            return false;
+        }
+    </script>
 
 	<!-- Footer -->
     <footer class="page-footer">
