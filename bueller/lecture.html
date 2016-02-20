@@ -28,6 +28,9 @@ Although you can use them, for a more unique website, replace these images with 
 
     <!-- Custom Fonts from Google -->
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+    <!-- Firebase stuff -->
+    <script src='https://cdn.firebase.com/js/client/2.2.1/firebase.js'></script>
     
 </head>
 
@@ -67,6 +70,13 @@ Although you can use them, for a more unique website, replace these images with 
             <div class="header-content-inner">
                 <h1>Bueller Professor</h1>
                 <p>This is your access key (give this to your students): </p>
+                <script>
+                    var firebaseRef = new Firebase('https://bueller.firebaseio.com/');
+                    var fullClassRef = firebaseRef.push();
+                    var classId = fullClassRef.key().substring(0,10);
+                    var classRef = firebaseRef.child(classId);
+                    document.write(classId);
+                </script>
             </div>
         </div>
     </header>
@@ -96,13 +106,6 @@ Although you can use them, for a more unique website, replace these images with 
     
     <!-- Custom Javascript -->
     <script src="js/custom.js"></script>
-
-    <script type="text/Javascript">
-    function createKey() {
-        //TODO: Get the key from Ben
-    }
-
-    </script>
 
 </body>
 
