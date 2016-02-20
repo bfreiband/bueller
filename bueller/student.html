@@ -70,26 +70,24 @@ Although you can use them, for a more unique website, replace these images with 
             <div class="header-content-inner">
                 <h1>Bueller Student</h1>
                 <p>Enter your access key here:</p>
-                <form onSubmit="return submitKey();" id="AKForm">
-                    <input style="color:black;" type="text" name="AK">
-                    <input style="color:black;" value="Submit" type="Submit">
+                <form onSubmit="submitKey()" id="AKForm">
+                    <input style="color:black;" type="text" id="AK">
+                    <button type="button" onclick="submitKey()">Submit</button>
+                    <!--<input style="color:black;" value="Submit" type="Button">-->
                 </form>
-
             </div>
         </div>
     </header>
 
     <script type="text/Javascript">
+        var firebaseRef = new Firebase('https://bueller.firebaseio.com/');
+
         function submitKey() {
-            var firebaseRef = new Firebase('https://bueller.firebaseio.com/');
-            var elem = document.getElementById('AKForm');
-            var classRef = firebaseRef.child(elem.value);
-            var studentRef = classRef.push({
-                'paceRating': null,
-                'comprehensionRating': null
-            });
+            var elemText = document.getElementById('AK').value;
+            var classRef = firebaseRef.child(elemText);
+            var studentRef = classRef.push({ 'paceRating': -1, 'comprehensionRating': -1 });
             //Deletes the form where the access key is submited
-            elem.parentNode.removeChild(elem);
+            // elem.parentNode.removeChild(elem);
 
             //TODO: place graphs and shit in the website
 
