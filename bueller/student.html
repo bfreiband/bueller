@@ -69,12 +69,11 @@ Although you can use them, for a more unique website, replace these images with 
         <div class="header-content">
             <div class="header-content-inner">
                 <h1>Bueller Student</h1>
-                <div id='selectorButtons' class='btn-group' role='group'></div>
+                <div id='selectorButtons' class='simple-btn-group' role='group'></div>
                 <p id=enterAccessKeyParagraph>Enter your access key here:</p>
                 <form onSubmit="submitKey()" id="AKForm">
                     <input style="color:black;" type="text" id="AK">
-                    <button type="button" onclick="submitKey()" onsubmit="submitKey()">Submit</button>
-                    <!--<input style="color:black;" value="Submit" type="Button">-->
+                    <button type="button" style="color:black" class='btn-simple' onclick="submitKey()" onsubmit="submitKey()">Submit</button>
                 </form>
             </div>
         </div>
@@ -101,7 +100,13 @@ Although you can use them, for a more unique website, replace these images with 
                 <button type="button" class="btn btn-default" onclick="paceChange(2)">2</button>\
                 <button type="button" class="btn btn-default" onclick="paceChange(3)">3</button>\
                 <button type="button" class="btn btn-default" onclick="paceChange(4)">4</button>\
-                <button type="button" class="btn btn-default" onclick="paceChange(5)">5</button>';
+                <button type="button" class="btn btn-default" onclick="paceChange(5)">5</button>\
+                <br><br>\
+                <button type="button" class="btn btn-default" onclick="comprehensionChange(1)">1</button>\
+                <button type="button" class="btn btn-default" onclick="comprehensionChange(2)">2</button>\
+                <button type="button" class="btn btn-default" onclick="comprehensionChange(3)">3</button>\
+                <button type="button" class="btn btn-default" onclick="comprehensionChange(4)">4</button>\
+                <button type="button" class="btn btn-default" onclick="comprehensionChange(5)">5</button>';
 
             return false;
         }
@@ -109,6 +114,11 @@ Although you can use them, for a more unique website, replace these images with 
         function paceChange(paceValue) {
             console.log(paceValue);
             studentRef.update({'paceRating': paceValue});
+        }
+
+        function comprehensionChange(comprehensionValue) {
+            console.log(comprehensionValue);
+            studentRef.update({'comprehensionRating': comprehensionValue});
         }
     </script>
 
