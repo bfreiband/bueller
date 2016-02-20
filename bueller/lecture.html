@@ -75,6 +75,7 @@ Although you can use them, for a more unique website, replace these images with 
                     var fullClassRef = firebaseRef.push();
                     var classId = fullClassRef.key().substring(0,10);
                     var classRef = firebaseRef.child(classId);
+                    classRef.onDisconnect().remove();
                     document.write(classId);
                 </script>
             </div>

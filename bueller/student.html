@@ -87,6 +87,7 @@ Although you can use them, for a more unique website, replace these images with 
             var elemText = elem.value;
             var classRef = firebaseRef.child(elemText);
             var studentRef = classRef.push({ 'paceRating': -1, 'comprehensionRating': -1 });
+            studentRef.onDisconnect().remove();
             //Deletes the form where the access key is submited
             document.getElementById('AKForm').remove();
             document.getElementById('enterAccessKeyParagraph').remove();
