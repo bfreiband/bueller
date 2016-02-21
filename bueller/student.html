@@ -87,7 +87,7 @@ Although you can use them, for a more unique website, replace these images with 
             var elem = document.getElementById('AK');
             var elemText = elem.value;
             var classRef = firebaseRef.child(elemText);
-            studentRef = classRef.push({ 'paceRating': -1, 'comprehensionRating': -1 });
+            studentRef = classRef.push({ 'paceRating': -1, 'comprehensionRating': -1 , 'oldPaceRating': -1 , 'oldComprehensionRating': -1 });
             studentRef.onDisconnect().remove();
             //Deletes the form where the access key is submited
             document.getElementById('AKForm').remove();
@@ -113,13 +113,21 @@ Although you can use them, for a more unique website, replace these images with 
         }
 
         function paceChange(paceValue) {
-            console.log(paceValue);
-            studentRef.update({'paceRating': paceValue});
+            var oldPaceValue;
+            studentRef.orderByKey().equalTo('paceRating').once("value", function(data) {
+                oldPaceValue = data.val().paceRating;
+                studentRef.update({'oldPaceRating': oldPaceValue, 'paceRating': paceValue});
+                // studentRef.update({'paceRating': paceValue});
+            })
         }
 
         function comprehensionChange(comprehensionValue) {
-            console.log(comprehensionValue);
-            studentRef.update({'comprehensionRating': comprehensionValue});
+            var oldComprehensionValue;
+            studentRef.orderByKey().equalTo('comprehensionRating').once("value", function(data) {
+                oldComprehensionValue = data.val().comprehensionRating;
+                studentRef.update({'oldComprehensionRating': oldComprehensionValue, 'comprehensionRating': comprehensionValue});
+                // studentRef.update({'comprehensionRating': comprehensionValue});
+            })
         }
     </script>
 

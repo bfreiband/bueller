@@ -93,49 +93,6 @@ Although you can use them, for a more unique website, replace these images with 
                     var classRef = firebaseRef.child(classId);
                     classRef.onDisconnect().remove();
                     document.getElementById('accessKeyParagraph').innerHTML += '<strong>'+classId+'</strong>';
-
-                    classRef.on('child_changed', function(snapshot) {
-                        var pacing1 = 0;
-                        var pacing2 = 0;
-                        var pacing3 = 0;
-                        var pacing4 = 0;
-                        var pacing5 = 0;
-                        var comprehension1 = 0;
-                        var comprehension2 = 0;
-                        var comprehension3 = 0;
-                        var comprehension4 = 0;
-                        var comprehension5 = 0;
-                        snapshot.forEach(function(childSnapshot) {
-                            var key = childSnapshot.key();
-                            var childData = key.val();
-                            var childPaceRating = childData.paceRating;
-                            var childComprehensionRating = childData.comprehensionRating;
-                            if(childPaceRating == -1) { return true; }
-                            else if(childPaceRating == 1) { pacing1++; }
-                            else if(childPaceRating == 2) { pacing2++; }
-                            else if(childPaceRating == 3) { pacing3++; }
-                            else if(childPaceRating == 4) { pacing4++; }
-                            else if(childPaceRating == 5) { pacing5++; }
-                            console.log(pacing1);
-                            console.log(pacing2);
-                            console.log(pacing3);
-                            console.log(pacing4);
-                            console.log(pacing5);
-
-                            if(childComprehensionRating == -1) { return true; }
-                            else if(childComprehensionRating == 1) { comprehension1++; }
-                            else if(childComprehensionRating == 2) { comprehension2++; }
-                            else if(childComprehensionRating == 3) { comprehension3++; }
-                            else if(childComprehensionRating == 4) { comprehension4++; }
-                            else if(childComprehensionRating == 5) { comprehension5++; }
-                            console.log(comprehension1);
-                            console.log(comprehension2);
-                            console.log(comprehension3);
-                            console.log(comprehension4);
-                            console.log(comprehension5);
-
-                        })
-                    })
                 </script>
 
                 <!--- step 1: create a canvas on the webpage -->
