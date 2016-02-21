@@ -28,11 +28,11 @@ $(function() {
 })
 
 function updatePaceChart(a, b, c, d, e) {
-    myBarChart.datasets[0].bars[0].value = a;
-    myBarChart.datasets[0].bars[1].value = b;
-    myBarChart.datasets[0].bars[2].value = c;
-    myBarChart.datasets[0].bars[3].value = d;
-    myBarChart.datasets[0].bars[4].value = e;
+    myBarChart.datasets[0].bars[0].value = myBarChart.datasets[0].bars[0].value + a;
+    myBarChart.datasets[0].bars[1].value = myBarChart.datasets[0].bars[1].value + b;
+    myBarChart.datasets[0].bars[2].value = myBarChart.datasets[0].bars[2].value + c;
+    myBarChart.datasets[0].bars[3].value = myBarChart.datasets[0].bars[3].value + d;
+    myBarChart.datasets[0].bars[4].value = myBarChart.datasets[0].bars[4].value + e;
     myBarChart.update();
     // Calling update now animates the position of March from 90 to 50.
 }
