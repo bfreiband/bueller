@@ -101,6 +101,7 @@ Although you can use them, for a more unique website, replace these images with 
                 </div>
 
                 <p>Below is your latest question:</p>
+                <div id='latestQuestions'></div>
 
                 <script>
                     classRef.on('child_changed', function(snapshot) {
@@ -146,8 +147,8 @@ Although you can use them, for a more unique website, replace these images with 
 
                             updateCompChart(comprehensionDelta1, comprehensionDelta2, comprehensionDelta3, comprehensionDelta4, comprehensionDelta5);
                         }
-                        if(snapshot.val().graphChanged == 3) {
-                            //document.write(snapshot.val().feedbacktextarea)
+                        else if(snapshot.val().graphChanged == 3) {
+                            document.getElementById('latestQuestions').innerHTML = '<strong>'+snapshot.val().feedbackText+'</strong>';
                         }
                     })
                 </script>
