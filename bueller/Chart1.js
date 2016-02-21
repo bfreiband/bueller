@@ -27,7 +27,7 @@ $(function() {
     myBarChart = new Chart(ctx).Bar(data, option);
 })
 
-function updateSpeedChart(a, b, c, d, e) {
+function updatePaceChart(a, b, c, d, e) {
     myBarChart.datasets[0].bars[0].value = a;
     myBarChart.datasets[0].bars[1].value = b;
     myBarChart.datasets[0].bars[2].value = c;
