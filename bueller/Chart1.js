@@ -19,7 +19,7 @@ $(function() {
     };
     var option = {
         scaleShowLabels: true,
-        scaleFontSize: 16
+        scaleFontSize: 18
     };
 
     //step 2: get the context to the element we are looking at
