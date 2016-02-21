@@ -100,6 +100,8 @@ Although you can use them, for a more unique website, replace these images with 
                     <canvas id="myChart2" width="400" height="400"></canvas>
                 </div>
 
+                <p>Below is your latest question:</p>
+
                 <script>
                     classRef.on('child_changed', function(snapshot) {
                         var pacingDelta1 = 0;
@@ -143,6 +145,9 @@ Although you can use them, for a more unique website, replace these images with 
                             else if(snapshot.val().comprehensionRating == 5) { comprehensionDelta5 += 1; }
 
                             updateCompChart(comprehensionDelta1, comprehensionDelta2, comprehensionDelta3, comprehensionDelta4, comprehensionDelta5);
+                        }
+                        if(snapshot.val().graphChanged == 3) {
+                            //document.write(snapshot.val().feedbacktextarea)
                         }
                     })
                 </script>
