@@ -67,8 +67,14 @@ Although you can use them, for a more unique website, replace these images with 
             <div class="header-content-inner">
                 <h1>Bueller</h1>
                 <p>Real-time data for lecturers who want the best</p>
-
-                <a href="lecture.html" class="btn btn-primary btn-lg">Professor Portal</a>
+                <div id='lecturerButton'></div>
+                <script type="text/javascript">
+                    var width = window.screen.width;
+                    var height = window.screen.height;
+                    if(width > height) {
+                        document.getElementById('lecturerButton').innerHTML = '<a href="lecture.html" class="btn btn-primary btn-lg">Professor Portal</a><br><br>';
+                    }
+                </script>
                 <a href="student.html" class="btn btn-primary btn-lg">Student Portal</a>
             </div>
         </div>
