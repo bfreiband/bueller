@@ -71,11 +71,13 @@ Although you can use them, for a more unique website, replace these images with 
                 <h1>Bueller: Student</h1>
                 <div id='selectorButtons' class='simple-btn-group' role='group'></div>
                 <p id='enterAccessKeyParagraph'>Enter your access key here:</p>
-                <form onSubmit="submitKey()" id="AKForm">
-                    <input style="color:black;" type="text" id="AK">
-                    <button type="button" style="color:black" class='btn-simple' onclick="submitKey()" onsubmit="submitKey()">Submit</button>
-                </form>
-            </div>
+
+                    <form onSubmit="submitKey()" width='50px' id="AKForm">
+                            <div class="col-md-3 col-md-offset-4 centered"><input class="form-control" type="text" id="AK"></div>
+                            <div class="col-md-1 centered"><button type="button" class="btn btn-default" onclick="submitKey()" onsubmit="submitKey()">Submit</button></div>
+                    </form>
+
+            </div> 
         </div>
     </header>
 
@@ -107,10 +109,14 @@ Although you can use them, for a more unique website, replace these images with 
                 <button type="button" class="btn btn-default" onclick="comprehensionChange(2)">2</button>\
                 <button type="button" class="btn btn-default" onclick="comprehensionChange(3)">3</button>\
                 <button type="button" class="btn btn-default" onclick="comprehensionChange(4)">4</button>\
-                <button type="button" class="btn btn-default" onclick="comprehensionChange(5)">5</button>';
+                <button type="button" class="btn btn-default" onclick="comprehensionChange(5)">5</button>\
+                <p>Ask a question anonymously:</p>\
+                <textarea class="form-control" rows="5" id=""></textarea><br>\
+                <button type="button" class="btn btn-default" onclick="**BEN EDIT ME***">Submit</button>';
 
             return false;
         }
+
 
         function paceChange(paceValue) {
             var oldPaceValue;
