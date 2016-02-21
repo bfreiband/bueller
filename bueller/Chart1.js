@@ -3,10 +3,10 @@
 $(function() {
     //step 3: create a data object
     var data = {
-        labels: ["1", "2", "3", "4", "5"],
+        labels: ["Slow", "Fairly Slow", "Just Right", "Fairly Fast", "Fast"],
     datasets: [
         {
-            label: "My First dataset",
+            label: "Number of Students",
             fillColor: "rgba(220,220,220,0.5)",
             strokeColor: "rgba(220,220,220,0.8)",
             highlightFill: "rgba(220,220,220,0.75)",
@@ -15,7 +15,10 @@ $(function() {
         },
     ]
     };
-    var option = {};
+    var option = {
+        scaleShowLabels: true,
+        scaleFontSize: 16
+    };
 
     //step 2: get the context to the element we are looking at
     var ctx = document.getElementById("myChart1").getContext('2d');
