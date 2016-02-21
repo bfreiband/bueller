@@ -28,11 +28,16 @@ $(function() {
 })
 
 function updateCompChart(a, b, c, d, e) {
-    myBarChart2.datasets[0].bars[0].value += a;
-    myBarChart2.datasets[0].bars[1].value += b;
-    myBarChart2.datasets[0].bars[2].value += c;
-    myBarChart2.datasets[0].bars[3].value += d;
-    myBarChart2.datasets[0].bars[4].value += e;
+    console.log(a);
+    console.log(b);
+    console.log(c);
+    console.log(d);
+    console.log(e);
+    myBarChart2.datasets[0].bars[0].value = myBarChart2.datasets[0].bars[0].value + a;
+    myBarChart2.datasets[0].bars[1].value = myBarChart2.datasets[0].bars[1].value + b;
+    myBarChart2.datasets[0].bars[2].value = myBarChart2.datasets[0].bars[2].value + c;
+    myBarChart2.datasets[0].bars[3].value = myBarChart2.datasets[0].bars[3].value + d;
+    myBarChart2.datasets[0].bars[4].value = myBarChart2.datasets[0].bars[4].value + e;
     myBarChart2.update();
     // Calling update now animates the position of March from 90 to 50.
 }
