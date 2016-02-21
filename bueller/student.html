@@ -76,7 +76,6 @@ Although you can use them, for a more unique website, replace these images with 
                             <div class="col-md-3 col-md-offset-4 centered"><input class="form-control" type="text" id="AK"></div>
                             <div class="col-md-1 centered"><button type="button" class="btn btn-default" onclick="submitKey()" onsubmit="submitKey()">Submit</button></div>
                     </form>
-
             </div> 
         </div>
     </header>
@@ -89,7 +88,7 @@ Although you can use them, for a more unique website, replace these images with 
             var elem = document.getElementById('AK');
             var elemText = elem.value;
             var classRef = firebaseRef.child(elemText);
-            studentRef = classRef.push({ 'paceRating': -1, 'comprehensionRating': -1 , 'oldPaceRating': -1 , 'oldComprehensionRating': -1, 'graphChanged': 0 });
+            studentRef = classRef.push({ 'paceRating': -1, 'comprehensionRating': -1 , 'oldPaceRating': -1 , 'oldComprehensionRating': -1, 'graphChanged': 0, 'feedbackText': ""});
             studentRef.onDisconnect().remove();
             //Deletes the form where the access key is submited
             document.getElementById('AKForm').remove();
@@ -111,12 +110,16 @@ Although you can use them, for a more unique website, replace these images with 
                 <button type="button" class="btn btn-default" onclick="comprehensionChange(4)">4</button>\
                 <button type="button" class="btn btn-default" onclick="comprehensionChange(5)">5</button>\
                 <p>Ask a question anonymously:</p>\
-                <textarea class="form-control" rows="5" id=""></textarea><br>\
-                <button type="button" class="btn btn-default" onclick="**BEN EDIT ME***">Submit</button>';
+                <textarea class="form-control" rows="5" id="feedbackTextarea"></textarea><br>\
+                <button type="button" class="btn btn-default" onclick="submitFeedbackTextarea()">Submit</button>';
 
             return false;
         }
 
+        function submitFeedbackTextarea() {
+            var feedbackTextarea = document.getElementById('feedbackTextarea');
+            studentRef.update({'feedbackText': feedbackTextarea.value, 'graphChanged': 3});
+        }
 
         function paceChange(paceValue) {
             var oldPaceValue;
