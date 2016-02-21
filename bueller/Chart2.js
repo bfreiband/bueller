@@ -1,6 +1,6 @@
 'use strict'
 
-var myBarChart;
+var myBarChart2;
 
 $(function() {
     //step 3: create a data object
@@ -24,15 +24,15 @@ $(function() {
 
     //step 2: get the context to the element we are looking at
     var ctx = document.getElementById("myChart2").getContext('2d');
-    myBarChart = new Chart(ctx).Bar(data, option);
+    myBarChart2 = new Chart(ctx).Bar(data, option);
 })
 
 function updateCompChart(a, b, c, d, e) {
-    myBarChart.datasets[0].bars[0].value += a;
-    myBarChart.datasets[0].bars[1].value += b;
-    myBarChart.datasets[0].bars[2].value += c;
-    myBarChart.datasets[0].bars[3].value += d;
-    myBarChart.datasets[0].bars[4].value += e;
-    myBarChart.update();
+    myBarChart2.datasets[0].bars[0].value += a;
+    myBarChart2.datasets[0].bars[1].value += b;
+    myBarChart2.datasets[0].bars[2].value += c;
+    myBarChart2.datasets[0].bars[3].value += d;
+    myBarChart2.datasets[0].bars[4].value += e;
+    myBarChart2.update();
     // Calling update now animates the position of March from 90 to 50.
 }
