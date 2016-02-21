@@ -11,7 +11,7 @@ Although you can use them, for a more unique website, replace these images with 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
-    <title>Lecture</title>
+    <title>Student</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -68,7 +68,7 @@ Although you can use them, for a more unique website, replace these images with 
     <header>
         <div class="header-content">
             <div class="header-content-inner">
-                <h1>Bueller Student</h1>
+                <h1>Bueller: Student</h1>
                 <div id='selectorButtons' class='simple-btn-group' role='group'></div>
                 <p id='enterAccessKeyParagraph'>Enter your access key here:</p>
                 <form onSubmit="submitKey()" id="AKForm">
@@ -96,12 +96,13 @@ Although you can use them, for a more unique website, replace these images with 
             //TODO: place radio buttons and shit
             var div = document.getElementById('selectorButtons');
 
-            div.innerHTML = '<button type="button" class="btn btn-default" onclick="paceChange(1)">1</button>\
+            div.innerHTML = '<p>Professor speed (1 is too slow, 5 is too fast, 3 is just right):<br>\
+                <button type="button" class="btn btn-default" onclick="paceChange(1)">1</button>\
                 <button type="button" class="btn btn-default" onclick="paceChange(2)">2</button>\
                 <button type="button" class="btn btn-default" onclick="paceChange(3)">3</button>\
                 <button type="button" class="btn btn-default" onclick="paceChange(4)">4</button>\
                 <button type="button" class="btn btn-default" onclick="paceChange(5)">5</button>\
-                <br><br>\
+                <p>Professor clarity (1 is unclear, 5 is too detailed, 3 is perfectly clear):<br>\
                 <button type="button" class="btn btn-default" onclick="comprehensionChange(1)">1</button>\
                 <button type="button" class="btn btn-default" onclick="comprehensionChange(2)">2</button>\
                 <button type="button" class="btn btn-default" onclick="comprehensionChange(3)">3</button>\
